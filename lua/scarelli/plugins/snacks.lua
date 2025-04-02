@@ -236,20 +236,19 @@ return {
   {
     'folke/todo-comments.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
-    optional = true,
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('todo-comments').setup()
+    end,
     keys = {
       {
         '<leader>pt',
-        function()
-          require('snacks').picker.todo_comments()
-        end,
+        '<cmd>TodoTelescope<cr>',
         desc = 'Todo',
       },
       {
         '<leader>pT',
-        function()
-          require('snacks').picker.todo_comments { keywords = { 'TODO', 'FIX', 'FIXME' } }
-        end,
+        '<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>',
         desc = 'Todo/Fix/Fixme',
       },
     },
