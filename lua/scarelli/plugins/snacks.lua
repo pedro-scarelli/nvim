@@ -7,7 +7,7 @@ return {
     -- NOTE: Options
     opts = {
       explorer = {
-        enabled = true,
+        enabled = false,
         layout = {
           cycle = false,
         },
