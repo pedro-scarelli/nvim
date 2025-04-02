@@ -102,10 +102,51 @@ return {
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup {
       -- Set icons to characters that are more likely to work in every terminal.
-      --    Feel free to remove or use ones that you like more! :)
-      --    Don't feel like these are good choices.
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+      element_mappings = {},
+      expand_lines = true,
+
+      -- Add missing force_buffers field
+      force_buffers = true,
+      -- Add required mappings field
+      mappings = {
+        -- Use default mappings
+        expand = { '<CR>', '<2-LeftMouse>' },
+        open = 'o',
+        remove = 'd',
+        edit = 'e',
+        repl = 'r',
+        toggle = 't',
+      },
+
+      -- Add required element layouts
+      layouts = {
+        {
+          elements = {
+            -- Add required elements
+            { id = 'scopes', size = 0.25 },
+            { id = 'breakpoints', size = 0.25 },
+            { id = 'stacks', size = 0.25 },
+            { id = 'watches', size = 0.25 },
+          },
+          size = 40,
+          position = 'left',
+        },
+        {
+          elements = {
+            { id = 'repl', size = 0.5 },
+            { id = 'console', size = 0.5 },
+          },
+          size = 10,
+          position = 'bottom',
+        },
+      },
+
       controls = {
+        -- Add required enabled field
+        enabled = true,
+        -- Add required element field
+        element = 'repl',
         icons = {
           pause = '⏸',
           play = '▶',
@@ -117,6 +158,24 @@ return {
           terminate = '⏹',
           disconnect = '⏏',
         },
+      },
+
+      -- Add other required fields
+      floating = {
+        max_height = nil,
+        max_width = nil,
+        border = 'single',
+        mappings = {
+          close = { 'q', '<Esc>' },
+        },
+      },
+
+      windows = { indent = 1 },
+
+      render = {
+        max_type_length = nil,
+        max_value_lines = 100,
+        indent = 1,
       },
     }
 
