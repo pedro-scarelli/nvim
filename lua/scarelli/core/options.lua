@@ -1,5 +1,9 @@
--- Set <space> as the leader key
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
 -- See `:help mapleader`
+-- Set <space> as the leader key
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -74,3 +78,6 @@ vim.opt.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.opt.confirm = true
+
+vim.o.grepprg = 'rg --vimgrep --smart-case --hidden --follow'
+vim.o.grepformat = '%f:%l:%c:%m'

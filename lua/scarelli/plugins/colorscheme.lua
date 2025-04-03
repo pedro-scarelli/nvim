@@ -193,7 +193,7 @@ return {
   -- NOTE : tokyonight
   {
     'folke/tokyonight.nvim',
-    name = 'folkeTokyonight',
+    name = 'folketokyonight',
     priority = 1000,
     config = function()
       local transparent = true

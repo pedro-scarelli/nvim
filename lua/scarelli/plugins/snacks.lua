@@ -6,12 +6,14 @@ return {
     lazy = false,
     -- NOTE: Options
     opts = {
-      explorer = {
-        enabled = false,
-        layout = {
-          cycle = false,
-        },
-      },
+
+      -- explorer = {
+      --   enabled = true,
+      --   position = 'right',
+      --   layout = {
+      --     cycle = false,
+      --   },
+      -- },
       quickfile = {
         enabled = true,
         exclude = { 'latex' },
@@ -121,7 +123,6 @@ return {
           {
             section = 'terminal',
             cmd = 'cat /home/scarelli/Pictures/ascii/sasuke.txt',
-            -- cmd = "echo -e '\n' && cat ~/Pictures/ascii/sasuke.txt | lolcat -t | boxes -d simple",
             random = 10,
             pane = 2,
             indent = 4,
@@ -146,13 +147,13 @@ return {
         end,
         desc = 'Lazygit Logs',
       },
-      {
-        '<leader>es',
-        function()
-          require('snacks').explorer()
-        end,
-        desc = 'Open Snacks Explorer',
-      },
+      -- {
+      --   '<leader>e',
+      --   function()
+      --     require('snacks').explorer()
+      --   end,
+      --   desc = 'Open Snacks Explorer',
+      -- },
       {
         '<leader>rN',
         function()
@@ -172,7 +173,7 @@ return {
       {
         '<leader>pf',
         function()
-          require('snacks').picker.files()
+          require('snacks').picker.files { hidden = true }
         end,
         desc = 'Find Files (Snacks Picker)',
       },
