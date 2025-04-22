@@ -29,6 +29,11 @@ return {
           package_uninstalled = '✗',
         },
       },
+
+      registries = {
+        'github:Crashdummyy/mason-registry', -- Registro customizado para o Roslyn
+        'github:mason-org/mason-registry', -- Registro padrão (já incluso por padrão)
+      },
     }
 
     mason_lspconfig.setup {
@@ -42,6 +47,7 @@ return {
         'gopls',
         'emmet_ls',
         'emmet_language_server',
+        'roslyn',
         -- "eslint",
         'marksman',
       },

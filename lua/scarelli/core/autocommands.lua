@@ -5,3 +5,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  pattern = 'cs',
+  callback = function(args)
+    vim.lsp.codelens.refresh()
+    vim.api.nvim_create_autocmd({ 'BufWritePost', 'InsertLeave' }, {
+      buffer = args.buf,
+      callback = vim.lsp.codelens.refresh,
+    })
+  end,
+})
