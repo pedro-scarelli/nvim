@@ -122,7 +122,7 @@ return {
           { section = 'startup' },
           {
             section = 'terminal',
-            cmd = 'cat /home/scarelli/Pictures/ascii/sasuke.txt',
+            cmd = 'cat ~/.config/nvim/ascii/sasuke.txt',
             random = 10,
             pane = 2,
             indent = 4,
